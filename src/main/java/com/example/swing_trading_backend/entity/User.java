@@ -1,9 +1,7 @@
 package com.example.swing_trading_backend.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "users")
@@ -18,6 +16,19 @@ public class User {
 
     @Column(nullable = false)
     private String password;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "created_at", nullable = false, updatable = false)
+    private Date createdAt = new Date();
+
+    // Getters and setters for createdAt
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
 
     // Getters and setters
     public Long getId() {
@@ -43,4 +54,6 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    // Existing getters and setters remain unchanged
 }

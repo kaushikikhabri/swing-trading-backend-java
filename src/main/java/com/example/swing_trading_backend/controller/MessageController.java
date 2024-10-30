@@ -17,7 +17,8 @@ public class MessageController {
     }
 
     @PostMapping("/api/login")
-    public String login(@RequestBody LoginRequest loginRequest) {
+    public String login(@RequestBody LoginRequest loginRequest) {  //@RequestBody tells Spring to convert the JSON payload into a LoginRequest object automatically.
+
         // Save the user in the database
         userService.saveUser(loginRequest);
 

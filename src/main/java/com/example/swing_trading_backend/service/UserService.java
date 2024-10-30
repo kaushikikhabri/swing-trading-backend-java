@@ -9,12 +9,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-    @Autowired
+    @Autowired  //inject the UserService dependency automatically.
     private UserRepository userRepository;
 
     public void saveUser(LoginRequest loginRequest) {
         User user = new User();
-        user.setEmail(loginRequest.getEmail());
+        user.setEmail(loginRequest.getEmail());   //Sets the password field of the User entity with the password from loginRequest.
         user.setPassword(loginRequest.getPassword()); // You may want to hash the password here before saving
         userRepository.save(user);
     }
