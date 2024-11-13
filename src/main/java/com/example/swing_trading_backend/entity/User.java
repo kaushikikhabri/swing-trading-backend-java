@@ -21,6 +21,9 @@ public class User {
     @Column(name = "created_at", nullable = false, updatable = false)
     private Date createdAt = new Date();
 
+    @Column
+    private Integer count;
+
     // Getters and setters for createdAt
     public Date getCreatedAt() {
         return createdAt;
@@ -28,6 +31,14 @@ public class User {
 
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public void setCount (Integer count) {
+        this.count = count;
+    }
+
+    public int getCount () {
+        return count;
     }
 
     // Getters and setters
