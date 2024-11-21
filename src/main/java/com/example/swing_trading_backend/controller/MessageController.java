@@ -2,7 +2,9 @@ package com.example.swing_trading_backend.controller;
 
 import com.example.swing_trading_backend.dto.LoginRequest;
 import com.example.swing_trading_backend.service.UserService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -47,7 +49,7 @@ public class MessageController {
         return "{\"message\": \"Registration successful!\"}";
     }
 
-    // Login endpoint
+     //Login endpoint
     @PostMapping("/api/login")
     public String login(@RequestBody LoginRequest loginRequest) {
         // Check if the user exists in the database
@@ -61,6 +63,30 @@ public class MessageController {
             return "{\"message\": \"Invalid credentials!\"}";
         }
     }
+
+//    @PostMapping("/api/login")
+//    public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest, HttpSession session) {
+//        // Validate the user credentials
+//        boolean isValidUser = userService.validateUser(loginRequest);
+//
+//        if (isValidUser) {
+//            // Fetch the user's ID from the database
+//            Long userId;
+//            //userId = userService.getUserIdByUsername(loginRequest.getEmail());
+//
+//            // Store the user ID in the session
+//            session.setAttribute("userId", userId);
+//
+//            // Return a success message
+//            return ResponseEntity.ok("{\"message\": \"Successfully logged in!\"}");
+//        } else {
+//            // Return an error message
+//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"message\": \"Invalid credentials!\"}");
+//        }
+//    }
+
+
+
 //
 //    @PostMapping("/api/count")
 //    public ResponseEntity<String> updateCount(@RequestBody Map<String, Integer> payload) {

@@ -58,6 +58,28 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--&lt;!&ndash;			<artifactId>spring-boot-starter-data-redis</artifactId> &lt;!&ndash; For session storage in Redis &ndash;&gt;&ndash;&gt; -->
+<!--		</dependency>-->
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+			<version>3.1.5</version> <!-- Replace with the actual latest version -->
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework.session</groupId>
+			<artifactId>spring-session-data-redis</artifactId>
+			<version>3.1.5</version> <!-- Replace with the actual latest version -->
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -68,5 +90,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

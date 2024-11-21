@@ -61,5 +61,15 @@ public class UserService {
             return user.getPassword().equals(loginRequest.getPassword()); // Compare passwords (hash comparison in real apps)
         }
         return false;
-    }
-}
+    }}
+
+//    public Long getUserIdByUsername(String username) {
+//        // Query the database to find the user's ID
+//        User user = userRepository.findByUsername(username);
+//        if (user != null) {
+//            return user.getId();
+//        }
+//        //throw new UsernameNotFoundException("User not found");
+//
+//
+//}
