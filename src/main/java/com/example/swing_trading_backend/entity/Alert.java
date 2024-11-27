@@ -1,18 +1,48 @@
-package com.example.swing_trading_backend.dto;
+package com.example.swing_trading_backend.entity;
 
+import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public class AlertRequest {
+@Entity
+@Table(name = "alerts")
+public class Alert {
 
-    private Long userId; // Changed from UUID to Long
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "user_id", nullable = false)
+    private Long userId;
+
+    // Updated ticker column length
+    @Column(name = "ticker", nullable = false, length = 50)
     private String ticker;
+
+    // Updated precision and scale for current_price
+    @Column(name = "current_price", nullable = false, precision = 15, scale = 10)
     private BigDecimal currentPrice;
+
+    // Updated operator column length
+    @Column(name = "operator", nullable = false, length = 5)
     private String operator;
+
+    // Updated precision and scale for alert_price
+    @Column(name = "alert_price", nullable = false, precision = 15, scale = 10)
     private BigDecimal alertPrice;
+
+    @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
-    // Getters and Setters
+    // Getters and setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Long getUserId() {
         return userId;
     }
@@ -61,3 +91,4 @@ public class AlertRequest {
         this.createdAt = createdAt;
     }
 }
+
