@@ -12,22 +12,16 @@ public class Alert {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "user_id", nullable = false)
-    private Long userId;
+    @Column(name = "email_id", nullable = false, unique = true, length = 255)
+    private String emailId;
 
-    // Updated ticker column length
+
     @Column(name = "ticker", nullable = false, length = 50)
     private String ticker;
 
-    // Updated precision and scale for current_price
-    @Column(name = "current_price", nullable = false, precision = 15, scale = 10)
-    private BigDecimal currentPrice;
-
-    // Updated operator column length
     @Column(name = "operator", nullable = false, length = 5)
     private String operator;
 
-    // Updated precision and scale for alert_price
     @Column(name = "alert_price", nullable = false, precision = 15, scale = 10)
     private BigDecimal alertPrice;
 
@@ -43,12 +37,12 @@ public class Alert {
         this.id = id;
     }
 
-    public Long getUserId() {
-        return userId;
+    public String getEmailId() {
+        return emailId;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
     }
 
     public String getTicker() {
@@ -57,14 +51,6 @@ public class Alert {
 
     public void setTicker(String ticker) {
         this.ticker = ticker;
-    }
-
-    public BigDecimal getCurrentPrice() {
-        return currentPrice;
-    }
-
-    public void setCurrentPrice(BigDecimal currentPrice) {
-        this.currentPrice = currentPrice;
     }
 
     public String getOperator() {
@@ -90,5 +76,5 @@ public class Alert {
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
-}
 
+}
