@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class AlertService {
@@ -34,4 +35,9 @@ public class AlertService {
 
         return "Alert created successfully!";
     }
+
+    public List<Alert> getAlertsByEmail(String emailId) {
+        return alertRepository.findByEmailId(emailId);
+    }
+
 }
