@@ -22,7 +22,7 @@ public class AlertService {
      */
     public String createAlert(AlertRequest alertRequest) {
         // Map AlertRequest DTO to Alert entity
-        Alert alert = new Alert();
+        Alert alert = new Alert();   //Entity object
         alert.setUserId(alertRequest.getUserId());
         alert.setTicker(alertRequest.getTicker());
         alert.setCurrentPrice(alertRequest.getCurrentPrice());
