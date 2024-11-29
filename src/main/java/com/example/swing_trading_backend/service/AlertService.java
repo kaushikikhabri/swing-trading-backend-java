@@ -26,7 +26,6 @@ public class AlertService {
         // Assuming AlertRequest is being converted to Alert somewhere in your service layer:
         Alert alert = new Alert();
         alert.setEmailId(alertRequest.getEmailId());  // Ensure emailId is not null here
-
         alert.setTicker(alertRequest.getTicker());
         alert.setOperator(alertRequest.getOperator());
         alert.setAlertPrice(alertRequest.getAlertPrice());
