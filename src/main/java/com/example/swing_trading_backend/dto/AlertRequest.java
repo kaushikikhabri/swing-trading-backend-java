@@ -5,21 +5,19 @@ import java.time.LocalDateTime;
 
 public class AlertRequest {
 
-    private Long userId; // Changed from UUID to Long
+    private String emailId; // Changed from UUID to Long
     private String ticker;
-    private BigDecimal currentPrice;
     private String operator;
     private BigDecimal alertPrice;
     private LocalDateTime createdAt;
 
+
     // Getters and Setters
-    public Long getUserId() {
-        return userId;
+    public String getEmailId() {
+        return emailId;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
+    public void setEmailId(String emailId) {this.emailId = emailId;}
 
     public String getTicker() {
         return ticker;
@@ -27,14 +25,6 @@ public class AlertRequest {
 
     public void setTicker(String ticker) {
         this.ticker = ticker;
-    }
-
-    public BigDecimal getCurrentPrice() {
-        return currentPrice;
-    }
-
-    public void setCurrentPrice(BigDecimal currentPrice) {
-        this.currentPrice = currentPrice;
     }
 
     public String getOperator() {

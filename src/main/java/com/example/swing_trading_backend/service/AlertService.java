@@ -21,14 +21,15 @@ public class AlertService {
      * @return Success message after saving
      */
     public String createAlert(AlertRequest alertRequest) {
-        // Map AlertRequest DTO to Alert entity
-        Alert alert = new Alert();   //Entity object
-        alert.setUserId(alertRequest.getUserId());
+
+        // Assuming AlertRequest is being converted to Alert somewhere in your service layer:
+        Alert alert = new Alert();
+        alert.setEmailId(alertRequest.getEmailId());  // Ensure emailId is not null here
+
         alert.setTicker(alertRequest.getTicker());
-        alert.setCurrentPrice(alertRequest.getCurrentPrice());
         alert.setOperator(alertRequest.getOperator());
         alert.setAlertPrice(alertRequest.getAlertPrice());
-        alert.setCreatedAt(LocalDateTime.now()); // Automatically set created_at timestamp
+        alert.setCreatedAt(alertRequest.getCreatedAt());
 
         // Save the alert to the database
         alertRepository.save(alert);
