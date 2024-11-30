@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 //business logic here
 @Service
@@ -24,8 +25,8 @@ public class WatchlistService {
         //Passing data from DTO to entity
         watchlist.setWatchlistId(watchlistRequest.getId());
         watchlist.setTicker(watchlistRequest.getTicker());
-//        watchlist.setEmailId(watchlistRequest.getEmailId());
-        watchlist.setEmailId("email@example.com"); //remove this later
+        watchlist.setEmailId(watchlistRequest.getEmailId());
+        //watchlist.setEmailId("email@example.com"); //remove this later
         watchlist.setCreatedAt(LocalDateTime.now());
 
         // Save the alert to the database
@@ -33,5 +34,9 @@ public class WatchlistService {
         System.out.println("Inside service "+watchlist.getTicker());
 
         return "Inside Watchlist Service";
+    }
+
+    public List<Watchlist> getWatchlistByEmail(String emailId) {
+        return watchlistRepository.findByEmailId(emailId);
     }
 }
