@@ -16,9 +16,14 @@
 
 package com.example.swing_trading_backend.dto;
 
+import java.time.LocalDateTime;
+
 public class WatchlistRequest {
 
+    private Long id;
     private String ticker;
+    private LocalDateTime createdAt;
+    private String emailId;
 
     // Default constructor
     public WatchlistRequest() {}
@@ -28,8 +33,32 @@ public class WatchlistRequest {
         return ticker;
     }
 
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public String getEmailId() {
+        return emailId;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
     // Setter
     public void setTicker(String ticker) {
         this.ticker = ticker;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt){
+        this.createdAt = createdAt;
+    }
+
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

@@ -14,13 +14,13 @@ public class Watchlist
     @GeneratedValue(strategy = GenerationType.IDENTITY) //id for a watchlist
     private Long id;
 
-    @Column(name = "ticker", nullable = false, length = 50)
+    @Column(name = "ticker", length = 50)
     private String ticker;
 
-    @Column(name = "created_at", nullable = false)
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @Column(name = "email_id", nullable = false, unique = true, length = 255)
+    @Column(name = "email_id", unique = true, length = 255)
     private String emailId;
 
     //setter and getters
