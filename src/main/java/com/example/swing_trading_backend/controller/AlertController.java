@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/alerts")
 public class AlertController {
@@ -23,4 +25,11 @@ public class AlertController {
         // Respond back after processing the alert request
         return ResponseEntity.ok(responseMessage);
     }
+
+    @GetMapping("/{emailId}")
+    public ResponseEntity<List<Alert>> getAlertsByEmail(@PathVariable String emailId) {
+        List<Alert> alerts = alertService.getAlertsByEmail(emailId);
+        return ResponseEntity.ok(alerts);
+    }
+
 }
