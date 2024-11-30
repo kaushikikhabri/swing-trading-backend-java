@@ -20,7 +20,7 @@ public class Watchlist
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @Column(name = "email_id", unique = true, length = 255)
+    @Column(name = "email_id", length = 255)
     private String emailId;
 
     //setter and getters
