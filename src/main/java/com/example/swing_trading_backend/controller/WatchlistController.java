@@ -23,7 +23,7 @@ import java.util.List;
         public ResponseEntity<String> watchlist(@RequestBody WatchlistRequest watchlistRequest) {
             // Call the service to process the request
             System.out.println("Inside COntroller "+watchlistRequest.getEmailId());
-            String responseMessage = watchlistService.createWatchlist(watchlistRequest);
+            //String responseMessage = watchlistService.createWatchlist(watchlistRequest);
             //watchlistRequest.setTicker()
 
             //System.out.println("Inside COntroller "+watchlistRequest.getTicker());
