@@ -14,7 +14,7 @@ public class Watchlist
     @GeneratedValue(strategy = GenerationType.IDENTITY) //id for a watchlist
     private Long id;
 
-    @Column(name = "ticker", length = 50)
+    @Column(name = "ticker", length = 50, unique = true)  // Added 'unique = true' here
     private String ticker;
 
     @Column(name = "created_at")

@@ -35,6 +35,22 @@ public class WatchlistService {
 
         return "Inside Watchlist Service";
     }
+    // Method to delete a stock from the watchlist
+    public boolean deleteWatchlist(String ticker) {
+        try {
+            Watchlist watchlist = watchlistRepository.findByTicker(ticker);
+            if (watchlist != null) {
+                watchlistRepository.delete(watchlist);
+                return true;
+            } else {
+                return false; // Stock not found
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false; // Failed to delete
+        }
+    }
+
 
     public List<Watchlist> getWatchlistByEmail(String emailId) {
         return watchlistRepository.findByEmailId(emailId);
