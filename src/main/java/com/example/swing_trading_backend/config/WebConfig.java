@@ -1,6 +1,5 @@
-package com.example.swing_trading_backend.config;//package com.example.swing_trading_backend.config;
+package com.example.swing_trading_backend.config;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -11,9 +10,12 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/api/**")
-                .allowedOrigins("*")
+                .allowedOrigins(
+                        "http://localhost:3000", // Local frontend
+                        "https://your-deployed-frontend-domain.com" // Replace with your deployed frontend URL
+                )
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
-                .allowCredentials(true); // Important for Redis sessions; // Replace with your React app's URL
+                .allowCredentials(true); // Important for Redis sessions or cookies
     }
 }
