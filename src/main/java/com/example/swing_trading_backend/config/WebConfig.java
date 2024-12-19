@@ -11,9 +11,12 @@ public class WebConfig implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/api/**")
                 .allowedOrigins(
-                        "*",
-                        "http://localhost:3000", // Local frontend
-                        "https://h58l.github.io/Swing-Trading_Frontend/" // Replace with your deployed frontend URL
+                        "https://h58l.github.io",
+                        "https://h58l.github.io/",
+                        "https://h58l.github.io/*",
+                        "http://localhost:3000", 
+                        "https://h58l.github.io/Swing-Trading_Frontend/",
+                        "https://h58l.github.io/Swing-Trading_Frontend"
                 )
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
