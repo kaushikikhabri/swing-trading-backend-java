@@ -11,6 +11,7 @@ public class WebConfig implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/api/**")
                 .allowedOrigins(
+                        "*",
                         "http://localhost:3000", // Local frontend
                         "https://h58l.github.io/Swing-Trading_Frontend/" // Replace with your deployed frontend URL
                 )
