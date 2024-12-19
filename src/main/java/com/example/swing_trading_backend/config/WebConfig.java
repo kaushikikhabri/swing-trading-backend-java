@@ -12,7 +12,7 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addMapping("/api/**")
                 .allowedOrigins(
                         "http://localhost:3000", // Local frontend
-                        "https://your-deployed-frontend-domain.com" // Replace with your deployed frontend URL
+                        "https://h58l.github.io/Swing-Trading_Frontend/" // Replace with your deployed frontend URL
                 )
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
