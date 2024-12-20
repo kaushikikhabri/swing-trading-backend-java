@@ -39,12 +39,14 @@ public class WatchlistService {
     public boolean deleteWatchlist(String ticker, String emailId) {
         try {
             Watchlist watchlist = watchlistRepository.findByTickerAndEmailId(ticker, emailId);
+
             if (watchlist != null) {
                 watchlistRepository.delete(watchlist);
                 // Simulate sending an email (you can implement email service here)
                 System.out.println("Email sent to: " + emailId + " for ticker: " + ticker);
                 return true;
             } else {
+                System.out.println("No matching record found for Ticker: " + ticker + " and EmailId: " + emailId);
                 return false; // Stock not found for this email
             }
         } catch (Exception e) {

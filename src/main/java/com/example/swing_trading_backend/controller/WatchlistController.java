@@ -40,9 +40,10 @@ import java.util.List;
     public ResponseEntity<String> deleteWatchlist(@RequestBody WatchlistRequest watchlistRequest) {
         String ticker = watchlistRequest.getTicker();
         String emailId = watchlistRequest.getEmailId(); // Get email ID from the request
-        System.out.println("Email for deletion: " + emailId); // Log the email
-        boolean isDeleted = watchlistService.deleteWatchlist(ticker, emailId);
+        System.out.println("Received Ticker: " + ticker);
+        System.out.println("Received EmailId: " + emailId);
 
+        boolean isDeleted = watchlistService.deleteWatchlist(ticker, emailId);
 
 
         if (isDeleted) {
