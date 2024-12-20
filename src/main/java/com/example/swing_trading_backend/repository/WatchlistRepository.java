@@ -13,4 +13,6 @@ public interface WatchlistRepository extends JpaRepository<Watchlist, Long> {
 
     // Add method to find a watchlist entry by ticker
     Watchlist findByTicker(String ticker);
+    Watchlist findByTickerAndEmailId(String ticker, String emailId);
+
 }
