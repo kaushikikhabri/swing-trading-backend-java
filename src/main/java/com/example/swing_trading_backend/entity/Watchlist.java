@@ -1,20 +1,20 @@
 package com.example.swing_trading_backend.entity;
 
 import jakarta.persistence.*;
-import org.springframework.cglib.core.Local;
-
 import java.time.LocalDateTime;
 
-//stock_symbol = tikcer
 @Entity
-@Table(name = "watchlist")
-public class Watchlist
-{
+@Table(
+        name = "watchlist",
+        uniqueConstraints = {@UniqueConstraint(columnNames = {"email_id", "ticker"})} // Composite unique constraint
+)
+public class Watchlist {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //id for a watchlist
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // ID for a watchlist
     private Long id;
 
-    @Column(name = "ticker", length = 50, unique = true)  // Added 'unique = true' here
+    @Column(name = "ticker", length = 50)
     private String ticker;
 
     @Column(name = "created_at")
@@ -23,8 +23,7 @@ public class Watchlist
     @Column(name = "email_id", length = 255)
     private String emailId;
 
-    //setter and getters
-
+    // Getters and setters
     public void setEmailId(String emailId) {
         this.emailId = emailId;
     }
@@ -33,8 +32,7 @@ public class Watchlist
         return emailId;
     }
 
-    public void setWatchlistId(Long Watchlistid)
-    {
+    public void setWatchlistId(Long Watchlistid) {
         this.id = Watchlistid;
     }
 
@@ -42,26 +40,19 @@ public class Watchlist
         return id;
     }
 
-    public void setTicker(String ticker)
-    {
+    public void setTicker(String ticker) {
         this.ticker = ticker;
     }
 
-    public String getTicker()
-    {
+    public String getTicker() {
         return ticker;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt)
-    {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    public LocalDateTime getCreatedAt()
-    {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
-
-
-
 }

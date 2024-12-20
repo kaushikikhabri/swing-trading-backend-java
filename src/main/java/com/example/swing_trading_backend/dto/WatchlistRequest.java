@@ -38,6 +38,7 @@ public class WatchlistRequest {
     }
 
     public String getEmailId() {
+        System.out.println("hbdjwsk: " + emailId);
         return emailId;
     }
 
